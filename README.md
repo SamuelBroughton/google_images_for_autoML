@@ -1,6 +1,6 @@
 # Google Images for AutoMl Vision
 
-Want to train a model but don't have enough images? Want more images for you model than the ones you have taken? 
+Want to train a model but don't have enough images? Want more images for your model than the ones you have taken? 
 I decided to make this repository after struggling to have a large enough dataset to get good results off of the Google AutoML Vision API.
 
 At the moment it is a rough guide as I have only just got it to work myself.

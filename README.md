@@ -100,7 +100,7 @@ This will take a while.
 Now all your images are in your bucket you need to upload the csv file that bucket_to_csv.py created. It has been named **bucket.csv** by default.
 
 ```
-gsutil cp bucket.csv gs://my-bucket
+gsutil cp [SOURCE_DIRECTORY]/bucket.csv gs://my-bucket
 ```
 
 ## Next Steps

@@ -28,7 +28,7 @@ pip install google_images_download
 * Create a file called install.sh and copy the contents of install.sh from [this link](https://gist.github.com/ziadoz/3e8ab7e944d02fe872c3454d17af31a5) and run:
 
 ```
-chmod + x ./install.sh
+chmod +x ./install.sh
 ./install.sh
 ```
 

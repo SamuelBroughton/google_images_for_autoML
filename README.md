@@ -5,6 +5,21 @@ I decided to make this repository after struggling to have a large enough datase
 
 At the moment it is a rough guide as I have only just got it to work myself.
 
+## Overview
+
+* **[Getting Started](#getting-started)**
+  * [Setting up the Compute Engine](#setting-up-the-compute-engine)
+* **[scraper py](#scraper-py)**
+* **[Method 1](#method-1)** - involves manually cleaning your images on AutoML at the end
+  * [bucket_to_csv py](#bucket_to_csv-py)
+  * [Running bucket_to_csv py](#running-bucket_to_csv-py)
+* **[Method 2](#method-2)** - images are automatically cleaned before uploading to your cloud bucket
+  * [sort_images py](#sort_images-py)
+  * [clean py](#clean-py)
+  * [csv_formatting py](#csv_formatting-py)
+* **[Uploading your files to the bucket](#uploading-your-files-to-the-bucket)**
+* **[Next Steps](#next-steps)**
+
 ## Getting Started
 
 Its best if you have a basic understanding of Google Cloud, AutoML, compute engines and storage buckets, as I will not go into detail in these areas.
@@ -34,7 +49,7 @@ chmod +x ./install.sh
 
 * Follow the instructions [here](https://christopher.su/2015/selenium-chromedriver-ubuntu/) **except for the last step** where they create a python file.
 
-## scraper.py
+## scraper py
 
 Create a file scraper.py and add the contents of [scraper.py](https://github.com/SamuelBroughton/google_images_for_autoML/blob/master/scraper.py)
 
@@ -51,7 +66,9 @@ python2 scraper.py
 
 to collect all your images. NB: this will take a long time.
 
-## bucket_to_csv.py
+## Method 1
+
+### bucket_to_csv py
 
 Now that you have your scraped images, you should have a file structure similar to this (keeping in mind the trees example from before):
 
@@ -87,7 +104,21 @@ Here you need to enter the output directory folder name you specified in scraper
 Output directory (e.g. 'trees'): trees
 ```
 
-## Putting your files in the bucket
+## Method 2
+
+### sort_images py
+
+Coming soon!
+
+### clean py
+
+Coming soon!
+
+### csv_formatting py
+
+Coming soon!
+
+## Uploading your files to the bucket
 
 Becuase you will probably have a lot of images to upload to your bucket, run the following as Google recommends:
 

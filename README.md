@@ -68,6 +68,8 @@ to collect all your images. NB: this will take a long time.
 
 ## Method 1
 
+In this method image files are not "cleaned" before uploading to your bucket and AutoML. This will require you to sift through the images on AutoML yourself and remove any that are not right. i.e. not what you actually searched for.
+
 ### bucket_to_csv py
 
 Now that you have your scraped images, you should have a file structure similar to this (keeping in mind the trees example from before):
@@ -106,17 +108,62 @@ Output directory (e.g. 'trees'): trees
 
 ## Method 2
 
+In this method, an attempt has been made to automatically "clean" or rid of any images that are not what you searched for. The generic Vision API is used here to remove any images that are not of the general category you specify. 
+
+For example, the Vision API is able to recognise whether an image is food, cuisine or a dish. Therefore if you were wanting to train a model to detect a specific dish (e.g. lasagne), the Vision API could first be used to check whether the image is food, cuisine or a dish. If it is not, it will most likely not be a picture of lasagne!
+
+**NB: this takes about as much time as it did to download your images in the first place**
+
 ### sort_images py
 
-Coming soon!
+After you have scraped your images, you will need to install a couple of things to be able to run sort_images, clean and csv_formatting.py.
+
+#### More setup
+
+**Only do the following steps once**
+
+* Get pip3 on your instance, but do not upgrade it
+
+```
+sudo apt-get install python3-pip
+```
+
+* Install google dependencies
+
+```
+pip3 install --user google
+pip3 install --user google-cloud
+pip3 install --user google-cloud-vision
+```
+
+You will now be able to run sort_images.py
+
+#### After setup
+
+sort_images.py will call methods to rid of any images due to their size, type and contents and then call methods to rename files to conform to AutoML rules. 
+
+* To run it, simply:
+
+```
+python3 sort_images.py
+```
+
+**DO NOT RUN THE FILE UNTIL READING [clean py](#clean-py)**
+
+* You will then be prompted for the output directory you used in scraper.py
+* And finally you will be promted for the exact name of your google cloud storage bucket
 
 ### clean py
 
-Coming soon!
+clean.py contains the method to "clean" your downloaded images. 
+
+You will need to alter lines 33, 35 and 37. Instead of **GENERAL LABEL#**, you should enter the generic categories your images may satisfy. For example if you were creating the lasagne model, these three categories could be food, dish and cuisine.
+
+For help on knowing what categories you should enter here, use the [Google Vision drag and drop tool](https://cloud.google.com/vision/docs/drag-and-drop) to see what kind of things the Vision API returns.
 
 ### csv_formatting py
 
-Coming soon!
+csv_formatting.py simply alters the names of folders and files to conform to the rules of AuoML. Nothing is needed to be changed here.
 
 ## Uploading your files to the bucket
 

@@ -51,18 +51,20 @@ def test_folder_name(folder_name, output_d):
     else:
         return folder_name
 
-#################################################################
+def main():
+    print ("Creating bucket.csv ...")
+    csv_file = open("bucket.csv", "a")
 
-print ("Creating bucket.csv ...")
-csv_file = open("bucket.csv", "a")
+    csv_writer = csv.writer(csv_file)
 
-csv_writer = csv.writer(csv_file)
+    # the input here needs to be the name of the output directory used in scraper.py
+    target = input("Output directory (e.g. 'trees'): ")
+    dir = os.fsencode('./' + target)
 
-# the input here needs to be the name of the output directory used in scraper.py
-target = input("Output directory (e.g. 'trees'): ")
-dir = os.fsencode('./' + target)
+    recognise_files(dir, csv_file)
 
-recognise_files(dir, csv_file)
+    csv_file.close()
+    print("FINISHED")
 
-csv_file.close()
-print("FINISHED")
+if __name__ == "__main__":
+    main()
